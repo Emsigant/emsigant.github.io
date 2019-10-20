@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>vue源码拾遗 | Emsigant&#39;s blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="Observer&amp;#x3001;Dep&amp;#x548C;WatcherObserver&amp;#x5927;&amp;#x81F4;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF1A; 12345678910111213141516171819202122232425262728// Observer&amp;#x4E0D;&amp;#x76F4;&amp;#x63A5;&amp;#x8C03;&amp;#x7528;&amp;#xFF0C;&amp;#x800C;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue源码拾遗">
+<meta property="og:url" content="https://emsigant.github.io/2019/09/17/vue源码拾遗/index.html">
+<meta property="og:site_name" content="Emsigant&#39;s blog">
+<meta property="og:description" content="Observer&amp;#x3001;Dep&amp;#x548C;WatcherObserver&amp;#x5927;&amp;#x81F4;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF1A; 12345678910111213141516171819202122232425262728// Observer&amp;#x4E0D;&amp;#x76F4;&amp;#x63A5;&amp;#x8C03;&amp;#x7528;&amp;#xFF0C;&amp;#x800C;&amp;#x">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-23T02:29:00.295Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue源码拾遗">
+<meta name="twitter:description" content="Observer&amp;#x3001;Dep&amp;#x548C;WatcherObserver&amp;#x5927;&amp;#x81F4;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF1A; 12345678910111213141516171819202122232425262728// Observer&amp;#x4E0D;&amp;#x76F4;&amp;#x63A5;&amp;#x8C03;&amp;#x7528;&amp;#xFF0C;&amp;#x800C;&amp;#x">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "emsigant",
+  "url": "https://emsigant.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Emsigant&#39;s blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpeg">
+                </div>
+                <div class="content">
+                    <a class="header">emsigant</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-vue源码拾遗" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    vue源码拾遗
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h2 id="Observer&#x3001;Dep&#x548C;Watcher"><a href="#Observer&#x3001;Dep&#x548C;Watcher" class="headerlink" title="Observer&#x3001;Dep&#x548C;Watcher"></a>Observer&#x3001;Dep&#x548C;Watcher</h2><p>Observer&#x5927;&#x81F4;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Observer&#x4E0D;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;observe&#x51FD;&#x6570;&#x8C03;&#x7528;&#x3002;observe&#x51FD;&#x6570;&#x5224;&#x65AD;&#x4E86;&#x4E00;&#x4E9B;&#x56E0;&#x7D20;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;Observer</span></span><br><span class="line"><span class="keyword">class</span> Observer {</span><br><span class="line">    value: <span class="built_in">any</span>; <span class="comment">// &#x5C06;&#x8981;observe&#x7684;&#x5BF9;&#x8C61;</span></span><br><span class="line">    dep: Dep;</span><br><span class="line">    vmCount: <span class="built_in">number</span>;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params">value: <span class="built_in">any</span></span>) {</span><br><span class="line">        <span class="comment">// &#x7701;&#x7565;this.xx = xx</span></span><br><span class="line">        <span class="keyword">this</span>.dep = <span class="keyword">new</span> Dep(); <span class="comment">// &#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;dep</span></span><br><span class="line">        def(value, <span class="string">&apos;__ob__&apos;</span>, <span class="keyword">this</span>); <span class="comment">// &#x7ED9;value&#x52A0;&#x4E0A;__ob__&#x5C5E;&#x6027;</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) {</span><br><span class="line">            <span class="comment">// &#x5982;&#x679C;&#x662F;&#x6570;&#x7EC4;&#xFF0C;observe&#x6570;&#x7EC4;&#x6BCF;&#x4E00;&#x9879;</span></span><br><span class="line">            <span class="keyword">this</span>.observeArray(value);</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="comment">// &#x4E0D;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x8C03;&#x7528;this.walk</span></span><br><span class="line">            <span class="keyword">this</span>.walk(value);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    walk(obj: object) {</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> key of <span class="built_in">Object</span>.keys(obj)) {</span><br><span class="line">            defineReactive(obj, key);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    observeArray(arr: <span class="built_in">Array</span>&lt;<span class="built_in">any</span>&gt;) {</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i of arr) {</span><br><span class="line">            observe(i); <span class="comment">// observe&#x5C31;&#x662F;&#x505A;&#x4E86;&#x4E00;&#x4E9B;&#x5224;&#x65AD;&#x7136;&#x540E;&#x8C03;&#x7528;Observer&#x7684;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x51FD;&#x6570;</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>defineReactive&#x51FD;&#x6570;&#xFF1A;</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x91CD;&#x70B9;&#x5173;&#x6CE8;dep&#x7684;&#x5904;&#x7406;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">obj: object, key: <span class="built_in">string</span>, val: <span class="built_in">any</span></span>) </span>{</span><br><span class="line">    <span class="keyword">const</span> dep = <span class="keyword">new</span> Dep();</span><br><span class="line">    <span class="comment">// &#x7701;&#x7565;&#x4E00;&#x4E9B;&#x4E0D;&#x91CD;&#x8981;&#x7684;&#x4EE3;&#x7801;</span></span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(obj, key, {</span><br><span class="line">        <span class="keyword">get</span>() {</span><br><span class="line">            <span class="keyword">const</span> value = _getValue(val); <span class="comment">// _getVal&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x5224;&#x65AD;val&#x662F;&#x5426;&#x6709;getter&#xFF0C;&#x6709;&#x7684;&#x8BDD;&#x5C31;&#x8C03;&#x7528;&#xFF0C;&#x6CA1;&#x7684;&#x8BDD;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;val</span></span><br><span class="line">            <span class="keyword">if</span> (Dep.target) {</span><br><span class="line">                <span class="comment">// &#x5982;&#x679C;Dep&#x6709;&#x6B63;&#x5728;evaluate&#x7684;watcher</span></span><br><span class="line">                dep.depend(); <span class="comment">// &#x6DFB;&#x52A0;&#x4F9D;&#x8D56;&#xFF0C;&#x5C06;dep&#x6DFB;&#x52A0;&#x5230;target&#x7684;deps&#x6570;&#x7EC4;</span></span><br><span class="line">                <span class="comment">// ...</span></span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">return</span> val;</span><br><span class="line">        },</span><br><span class="line">        <span class="keyword">set</span>(newVal) {</span><br><span class="line">            <span class="keyword">const</span> value = _getValue(val); <span class="comment">// &#x540C;&#x4E0A;get&#x91CC;&#x7684;</span></span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">            val = newVal;</span><br><span class="line">            dep.notif(); <span class="comment">// &#x8C03;&#x7528;dep&#x7684;notif&#x65B9;&#x6CD5;</span></span><br><span class="line">        }</span><br><span class="line">    });</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>Dep&#x5927;&#x81F4;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Dep {</span><br><span class="line">    <span class="keyword">static</span> target: Watcher; <span class="comment">// &#x5F53;&#x524D;evaluate&#x7684;watcher</span></span><br><span class="line">    id: <span class="built_in">number</span>;</span><br><span class="line">    subs: <span class="built_in">Array</span>&lt;Watcher&gt;;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="keyword">this</span>.id = uid++;</span><br><span class="line">        <span class="keyword">this</span>.subs = [];</span><br><span class="line">    }</span><br><span class="line">    addSub(sub: Watcher) {</span><br><span class="line">        <span class="keyword">this</span>.subs.push(sub);</span><br><span class="line">    }</span><br><span class="line">    removeSub(sub: Watcher) {</span><br><span class="line">        _remove(<span class="keyword">this</span>.subs, sub);</span><br><span class="line">    }</span><br><span class="line">    depend() {</span><br><span class="line">        <span class="comment">// &#x8C03;&#x7528;target&#x7684;addDep&#x65B9;&#x6CD5;&#x5C06;&#x5F53;&#x524D;dep&#x63A8;&#x5165;target.deps</span></span><br><span class="line">        <span class="keyword">if</span> (Dep.target) {</span><br><span class="line">            Dep.target.addDep(<span class="keyword">this</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    notif() {</span><br><span class="line">        <span class="comment">// &#x5BF9;subs&#x4F9D;id&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x7136;&#x540E;&#x8C03;&#x7528;&#x6BCF;&#x4E2A;watcher&#x7684;update&#x65B9;&#x6CD5;</span></span><br><span class="line">        <span class="keyword">const</span> subs = <span class="keyword">this</span>.subs.slice().sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.id - b.id);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> watcher of subs) {</span><br><span class="line">            watcher.update();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>Watcher&#x5927;&#x81F4;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// watcher&#x7684;&#x4F5C;&#x7528;&#x662F;&#x6536;&#x96C6;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x6216;&#x8005;&#x51FD;&#x6570;(&#x6BD4;&#x5982;computed)&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x503C;&#x53D8;&#x66F4;&#x4E4B;&#x540E;</span></span><br><span class="line"><span class="keyword">class</span> Watcher {</span><br><span class="line">    <span class="comment">// ...&#x7701;&#x7565;&#x5C5E;&#x6027;</span></span><br><span class="line">    deps: <span class="built_in">Array</span>&lt;Dep&gt;;</span><br><span class="line">    newDeps: <span class="built_in">Array</span>&lt;Dep&gt;;</span><br><span class="line">    depIds: SimpleSet;</span><br><span class="line">    newDepIds: SimpleSet;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">        vm: Component,</span></span><br><span class="line"><span class="params">        expOrFn: <span class="built_in">string</span> | <span class="built_in">Function</span>, <span class="comment">// &#x8868;&#x8FBE;&#x5F0F;&#x6216;&#x8005;&#x51FD;&#x6570;&#x540D;</span></span></span><br><span class="line"><span class="params">        cb: <span class="built_in">Function</span>,</span></span><br><span class="line"><span class="params">        options?: object,</span></span><br><span class="line"><span class="params">        isRenderWathcer?: <span class="built_in">boolean</span></span></span><br><span class="line"><span class="params">    </span>) {</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">this</span>.deps = [];</span><br><span class="line">        <span class="keyword">this</span>.newDeps = [];</span><br><span class="line">        <span class="keyword">this</span>.depIds = <span class="keyword">new</span> Set();</span><br><span class="line">        <span class="keyword">this</span>.newDepIds = <span class="keyword">new</span> Set();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">get</span>() {</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">const</span> vm = <span class="keyword">this</span>.vm;</span><br><span class="line">        <span class="keyword">const</span> value = <span class="keyword">this</span>.getter.call(vm, vm);</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    }</span><br><span class="line">    addDep (dep: Dep) {</span><br><span class="line">        <span class="keyword">const</span> id = dep.id;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.newDepIds.has(id)) {</span><br><span class="line">            <span class="keyword">this</span>.newDepIds.add(id);</span><br><span class="line">            <span class="keyword">this</span>.newDeps.push(dep);</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.depIds.has(id)) {</span><br><span class="line">                dep.addSub(<span class="keyword">this</span>);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    cleanupDeps() { <span class="comment">// &#x6E05;&#x7A7A;&#x6240;&#x6709;dep</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    }</span><br><span class="line">    update() {</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        _queueWatcher(<span class="keyword">this</span>); <span class="comment">// &#x5C06;&#x5F53;&#x524D;watcher&#x63A8;&#x5165;&#x7F13;&#x51B2;&#x961F;&#x5217;</span></span><br><span class="line">    }</span><br><span class="line">    run() {</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">this</span>.cb.call(<span class="keyword">this</span>.vm, value, oldValue);</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    }</span><br><span class="line">    evaluate() {</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="keyword">this</span>.get();</span><br><span class="line">    }</span><br><span class="line">    depend () { <span class="comment">// &#x8C03;&#x7528;&#x6BCF;&#x4E2A;dep&#x7684;depend&#x65B9;&#x6CD5;</span></span><br><span class="line">        <span class="keyword">let</span> i = <span class="keyword">this</span>.deps.length;</span><br><span class="line">        <span class="keyword">while</span> (i--) {</span><br><span class="line">            <span class="keyword">this</span>.deps[i].depend();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    teardown() { <span class="comment">// &#x9500;&#x6BC1;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-09-17T07:52:17.000Z" itemprop="datePublished">2019-09-17</time>
+
+    </span>
+    <span class="post-description-item">
+        
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/2019/09/18/设计模式/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    设计模式
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/09/16/http缓存机制/" class="ui tiny button">
+                    
+                    http缓存机制
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#Observer、Dep和Watcher"><span>Observer、Dep和Watcher</span></a></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">emsigant</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>JavaScript数据类型和结构 | Emsigant&#39;s blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="ECMAScript&amp;#x6807;&amp;#x51C6;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E86;8&amp;#x79CD;&amp;#x6570;&amp;#x636E;&amp;#x7C7B;&amp;#x578B;&amp;#x9664;&amp;#x4E86;Object&amp;#x5747;&amp;#x4E3A;&amp;#x539F;&amp;#x59CB;&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&amp;#x5373;&amp;#x503C;&amp;#x4E0D;&amp;#x53EF">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数据类型和结构">
+<meta property="og:url" content="https://emsigant.github.io/2019/08/29/数据类型和结构/index.html">
+<meta property="og:site_name" content="Emsigant&#39;s blog">
+<meta property="og:description" content="ECMAScript&amp;#x6807;&amp;#x51C6;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E86;8&amp;#x79CD;&amp;#x6570;&amp;#x636E;&amp;#x7C7B;&amp;#x578B;&amp;#x9664;&amp;#x4E86;Object&amp;#x5747;&amp;#x4E3A;&amp;#x539F;&amp;#x59CB;&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&amp;#x5373;&amp;#x503C;&amp;#x4E0D;&amp;#x53EF">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-05T06:02:44.187Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript数据类型和结构">
+<meta name="twitter:description" content="ECMAScript&amp;#x6807;&amp;#x51C6;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E86;8&amp;#x79CD;&amp;#x6570;&amp;#x636E;&amp;#x7C7B;&amp;#x578B;&amp;#x9664;&amp;#x4E86;Object&amp;#x5747;&amp;#x4E3A;&amp;#x539F;&amp;#x59CB;&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&amp;#x5373;&amp;#x503C;&amp;#x4E0D;&amp;#x53EF">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "emsigant",
+  "url": "https://emsigant.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Emsigant&#39;s blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpeg">
+                </div>
+                <div class="content">
+                    <a class="header">emsigant</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-数据类型和结构" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    JavaScript数据类型和结构
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h2 id="ECMAScript&#x6807;&#x51C6;&#x5B9A;&#x4E49;&#x4E86;8&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;"><a href="#ECMAScript&#x6807;&#x51C6;&#x5B9A;&#x4E49;&#x4E86;8&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;" class="headerlink" title="ECMAScript&#x6807;&#x51C6;&#x5B9A;&#x4E49;&#x4E86;8&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;"></a>ECMAScript&#x6807;&#x51C6;&#x5B9A;&#x4E49;&#x4E86;8&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;</h2><p>&#x9664;&#x4E86;Object&#x5747;&#x4E3A;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#xFF0C;&#x5373;&#x503C;&#x4E0D;&#x53EF;&#x4EE5;&#x6539;&#x53D8;</p>
+<ul class="ui list">
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Number</li>
+<li>BigInt</li>
+<li>String</li>
+<li>Symbol</li>
+<li>Object</li>
+</ul>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-08-29T15:00:03.000Z" itemprop="datePublished">2019-08-29</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/tags/javascript/">javascript</a>
+    </span>
+
+    
+
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/2019/08/30/原型链/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    原型链
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/08/28/重读JavaScript精粹2/" class="ui tiny button">
+                    
+                    重读JavaScript精粹2
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#ECMAScript标准定义了8种数据类型"><span>ECMAScript标准定义了8种数据类型</span></a></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">emsigant</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>

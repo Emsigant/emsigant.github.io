@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>instanceof | Emsigant&#39;s blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="instanceof&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x63CF;&amp;#x8FF0;instanceof&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x7528;&amp;#x4E8E;&amp;#x6D4B;&amp;#x8BD5;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x7684;prototype&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x5426;&amp;#x">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="instanceof">
+<meta property="og:url" content="https://emsigant.github.io/2019/08/31/instanceof/index.html">
+<meta property="og:site_name" content="Emsigant&#39;s blog">
+<meta property="og:description" content="instanceof&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x63CF;&amp;#x8FF0;instanceof&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x7528;&amp;#x4E8E;&amp;#x6D4B;&amp;#x8BD5;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x7684;prototype&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x5426;&amp;#x">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-05T06:02:44.184Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="instanceof">
+<meta name="twitter:description" content="instanceof&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x63CF;&amp;#x8FF0;instanceof&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x7528;&amp;#x4E8E;&amp;#x6D4B;&amp;#x8BD5;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x7684;prototype&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x5426;&amp;#x">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "emsigant",
+  "url": "https://emsigant.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Emsigant&#39;s blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpeg">
+                </div>
+                <div class="content">
+                    <a class="header">emsigant</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-instanceof" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    instanceof
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h2 id="instanceof&#x64CD;&#x4F5C;&#x7B26;"><a href="#instanceof&#x64CD;&#x4F5C;&#x7B26;" class="headerlink" title="instanceof&#x64CD;&#x4F5C;&#x7B26;"></a>instanceof&#x64CD;&#x4F5C;&#x7B26;</h2><h3 id="&#x63CF;&#x8FF0;"><a href="#&#x63CF;&#x8FF0;" class="headerlink" title="&#x63CF;&#x8FF0;"></a>&#x63CF;&#x8FF0;</h3><p>instanceof&#x8FD0;&#x7B97;&#x7B26;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x5C5E;&#x6027;&#x662F;&#x5426;&#x51FA;&#x73B0;&#x5728;<strong>&#x5BF9;&#x8C61;</strong>&#x7684;&#x539F;&#x578B;&#x94FE;&#x4E2D;&#x7684;<strong>&#x4EFB;&#x4F55;</strong>&#x4F4D;&#x7F6E;</p>
+<h3 id="&#x8BED;&#x6CD5;"><a href="#&#x8BED;&#x6CD5;" class="headerlink" title="&#x8BED;&#x6CD5;"></a>&#x8BED;&#x6CD5;</h3><p>&#x8BED;&#x6CD5;&#xFF1A;<em>object</em> instanceof <em>constructor</em></p>
+<h3 id="&#x4EE3;&#x7801;&#x793A;&#x4F8B;"><a href="#&#x4EE3;&#x7801;&#x793A;&#x4F8B;" class="headerlink" title="&#x4EE3;&#x7801;&#x793A;&#x4F8B;"></a>&#x4EE3;&#x7801;&#x793A;&#x4F8B;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x5B9A;&#x4E49;&#x6784;&#x9020;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">C</span>(<span class="params"></span>)</span>{};</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">D</span>(<span class="params"></span>)</span>{};</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> C();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> C; <span class="comment">// true&#xFF0C;&#x56E0;&#x4E3A; Object.getPrototypeOf(o) === C.prototype</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> D; <span class="comment">// false&#xFF0C;&#x56E0;&#x4E3A; D.prototype&#x4E0D;&#x5728;o&#x7684;&#x539F;&#x578B;&#x94FE;&#x4E0A;</span></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// true,&#x56E0;&#x4E3A;Object.prototype.isPrototypeOf(o)&#x8FD4;&#x56DE;true</span></span><br><span class="line">C.prototype <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true,&#x540C;&#x4E0A;</span></span><br><span class="line"></span><br><span class="line">C.prototype = {};</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="keyword">new</span> C();</span><br><span class="line"></span><br><span class="line">o2 <span class="keyword">instanceof</span> C; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> C; <span class="comment">// false,C.prototype&#x6307;&#x5411;&#x4E86;&#x4E00;&#x4E2A;&#x7A7A;&#x5BF9;&#x8C61;,&#x8FD9;&#x4E2A;&#x7A7A;&#x5BF9;&#x8C61;&#x4E0D;&#x5728;o&#x7684;&#x539F;&#x578B;&#x94FE;&#x4E0A;.</span></span><br><span class="line"></span><br><span class="line">D.prototype = <span class="keyword">new</span> C(); <span class="comment">// &#x7EE7;&#x627F;</span></span><br><span class="line"><span class="keyword">var</span> o3 = <span class="keyword">new</span> D();</span><br><span class="line">o3 <span class="keyword">instanceof</span> D; <span class="comment">// true</span></span><br><span class="line">o3 <span class="keyword">instanceof</span> C; <span class="comment">// true &#x56E0;&#x4E3A;C.prototype&#x73B0;&#x5728;&#x5728;o3&#x7684;&#x539F;&#x578B;&#x94FE;&#x4E0A;</span></span><br></pre></td></tr></table></figure>
+
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-08-30T20:31:40.000Z" itemprop="datePublished">2019-08-31</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/tags/javascript/">javascript</a>
+    </span>
+
+    
+
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/2019/08/31/typeof/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    typeof
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/08/30/js拾遗/" class="ui tiny button">
+                    
+                    js拾遗
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#instanceof操作符"><span>instanceof操作符</span></a><ol><li><a href="#描述"><span>描述</span></a></li><li><a href="#语法"><span>语法</span></a></li><li><a href="#代码示例"><span>代码示例</span></a></li></ol></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">emsigant</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>

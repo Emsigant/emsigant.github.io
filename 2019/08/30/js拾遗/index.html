@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>js拾遗 | Emsigant&#39;s blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x5BF9;&amp;#x8C61;&amp;#x6DF1;&amp;#x62F7;&amp;#x8D1D;&amp;#xFF08;&amp;#x8BE6;&amp;#x5C3D;&amp;#x7684;&amp;#x53EF;&amp;#x4EE5;&amp;#x53C2;&amp;#x8003;lodash baseClone&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF09;&amp;#x9700;&amp;#x8981;&amp;#x8003;&amp;#x8651;&amp;#x7684;&amp;#x70B9;">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js拾遗">
+<meta property="og:url" content="https://emsigant.github.io/2019/08/30/js拾遗/index.html">
+<meta property="og:site_name" content="Emsigant&#39;s blog">
+<meta property="og:description" content="&amp;#x5BF9;&amp;#x8C61;&amp;#x6DF1;&amp;#x62F7;&amp;#x8D1D;&amp;#xFF08;&amp;#x8BE6;&amp;#x5C3D;&amp;#x7684;&amp;#x53EF;&amp;#x4EE5;&amp;#x53C2;&amp;#x8003;lodash baseClone&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF09;&amp;#x9700;&amp;#x8981;&amp;#x8003;&amp;#x8651;&amp;#x7684;&amp;#x70B9;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-23T02:29:00.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js拾遗">
+<meta name="twitter:description" content="&amp;#x5BF9;&amp;#x8C61;&amp;#x6DF1;&amp;#x62F7;&amp;#x8D1D;&amp;#xFF08;&amp;#x8BE6;&amp;#x5C3D;&amp;#x7684;&amp;#x53EF;&amp;#x4EE5;&amp;#x53C2;&amp;#x8003;lodash baseClone&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF09;&amp;#x9700;&amp;#x8981;&amp;#x8003;&amp;#x8651;&amp;#x7684;&amp;#x70B9;">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "emsigant",
+  "url": "https://emsigant.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Emsigant&#39;s blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpeg">
+                </div>
+                <div class="content">
+                    <a class="header">emsigant</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-js拾遗" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    js拾遗
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h2 id="&#x5BF9;&#x8C61;&#x6DF1;&#x62F7;&#x8D1D;&#xFF08;&#x8BE6;&#x5C3D;&#x7684;&#x53EF;&#x4EE5;&#x53C2;&#x8003;lodash-baseClone&#x7684;&#x5B9E;&#x73B0;&#xFF09;"><a href="#&#x5BF9;&#x8C61;&#x6DF1;&#x62F7;&#x8D1D;&#xFF08;&#x8BE6;&#x5C3D;&#x7684;&#x53EF;&#x4EE5;&#x53C2;&#x8003;lodash-baseClone&#x7684;&#x5B9E;&#x73B0;&#xFF09;" class="headerlink" title="&#x5BF9;&#x8C61;&#x6DF1;&#x62F7;&#x8D1D;&#xFF08;&#x8BE6;&#x5C3D;&#x7684;&#x53EF;&#x4EE5;&#x53C2;&#x8003;lodash baseClone&#x7684;&#x5B9E;&#x73B0;&#xFF09;"></a>&#x5BF9;&#x8C61;&#x6DF1;&#x62F7;&#x8D1D;&#xFF08;&#x8BE6;&#x5C3D;&#x7684;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="https://github.com/lodash/lodash/blob/master/.internal/baseClone.js" target="_blank" rel="noopener">lodash baseClone&#x7684;&#x5B9E;&#x73B0;</a>&#xFF09;</h2><p>&#x9700;&#x8981;&#x8003;&#x8651;&#x7684;&#x70B9;&#xFF1A;</p>
+<ul class="ui list">
+<li>&#x5FAA;&#x73AF;&#x5F15;&#x7528;</li>
+<li>&#x7279;&#x6B8A;&#x503C;&#x7684;&#x5904;&#x7406;&#xFF08;null&#x3001;undefined&#x7B49;&#x7B49;&#xFF09;</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">v</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(v) === <span class="string">&apos;[object Object]&apos;</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">v</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(v);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">value, srcStack, dstStack</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> newValue = isObject(value)</span><br><span class="line">        ? <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.getPrototypeOf(value))</span><br><span class="line">        : isArray(value)</span><br><span class="line">            ? []</span><br><span class="line">            : <span class="literal">undefined</span>;</span><br><span class="line">    <span class="keyword">if</span> (newValue === <span class="literal">undefined</span>) {</span><br><span class="line">        <span class="keyword">return</span> value; <span class="comment">// number boolean&#x6216;&#x8005;string&#x76F4;&#x63A5;&#x8FD4;&#x56DE;value</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> keys = <span class="built_in">Object</span>.keys(value);</span><br><span class="line">    <span class="keyword">var</span> index = <span class="number">-1</span>; <span class="comment">// &#x7528;&#x4E8E;&#x641C;&#x7D22;srcStack</span></span><br><span class="line">    <span class="keyword">var</span> prop = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// srcStack&#x548C;dstStack&#x7528;&#x4E8E;&#x590D;&#x5236;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x5BF9;&#x8C61;(a.a.a === a.a === a)</span></span><br><span class="line">    srcStack = srcStack || [];</span><br><span class="line">    dstStack = dstStack || [];</span><br><span class="line">    srcStack.push(value);</span><br><span class="line">    dstStack.push(newValue);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; keys.length; i++) {</span><br><span class="line">        prop = value[keys[i]];</span><br><span class="line">        <span class="keyword">if</span> (prop === <span class="literal">null</span> || prop === <span class="literal">undefined</span>) {</span><br><span class="line">            newValue[keys[i]] = prop;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (isObject(prop)) {</span><br><span class="line">            index = srcStack.lastIndexOf(prop);</span><br><span class="line">            <span class="keyword">if</span> (index &gt;= <span class="number">0</span>) {</span><br><span class="line">                newValue[keys[i]] = dstStack[index];</span><br><span class="line">                <span class="keyword">continue</span>; <span class="comment">// &#x8DF3;&#x8FC7;&#x540E;&#x7EED;&#x9012;&#x5F52;</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        newValue[keys[i]] = clone(prop, srcStack, dstStack);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> newValue;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-toString&#x548C;Object-prototype-toString"><a href="#Object-toString&#x548C;Object-prototype-toString" class="headerlink" title="Object.toString&#x548C;Object.prototype.toString"></a>Object.toString&#x548C;Object.prototype.toString</h2><ul class="ui list">
+<li>Object.toString&#x662F;Object&#x51FD;&#x6570;&#x7EE7;&#x627F;&#x81EA;Function&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;<code>function Object() {[native code]}</code></li>
+<li>Object.prototype.toString&#x662F;Object&#x7684;&#x539F;&#x578B;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;<code>[object ToStringTag]</code>(&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Symbol.toStringTag&#x4FEE;&#x6539;)</li>
+</ul>
+<h2 id="&#x3001;-&#x548C;Object-is"><a href="#&#x3001;-&#x548C;Object-is" class="headerlink" title="==&#x3001;===&#x548C;Object.is"></a><code>==</code>&#x3001;<code>===</code>&#x548C;<code>Object.is</code></h2><h3 id><a href="#" class="headerlink" title="=="></a><code>==</code></h3><p>&#x53C2;&#x89C1;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness#%E9%9D%9E%E4%B8%A5%E6%A0%BC%E7%9B%B8%E7%AD%89" target="_blank" rel="noopener">MDN&#x975E;&#x4E25;&#x683C;&#x76F8;&#x7B49;</a></p>
+<h3 id="&#x548C;Object-is"><a href="#&#x548C;Object-is" class="headerlink" title="===&#x548C;Object.is"></a><code>===</code>&#x548C;<code>Object.is</code></h3><p>===&#x548C;Object.is&#x6709;&#x4E24;&#x5904;&#x4E0D;&#x540C;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//+0&#x548C;-0</span></span><br><span class="line">+<span class="number">0</span> === <span class="number">-0</span>; <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(+<span class="number">0</span>, <span class="number">-0</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NaN</span></span><br><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>; <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>, <span class="literal">NaN</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="new-target"><a href="#new-target" class="headerlink" title="new.target"></a><code>new.target</code></h2><p>new.target&#x662F;&#x7528;&#x6765;&#x5224;&#x65AD;&#x51FD;&#x6570;&#x662F;&#x5426;&#x662F;&#x901A;&#x8FC7;new&#x5173;&#x952E;&#x5B57;&#x8C03;&#x7528;&#x7684;&#x3002;<br>new.target&#x6307;&#x5411;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;new.target&#x6574;&#x4F53;&#x53EF;&#x4EE5;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#xFF0C;<code>new.</code>&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x201C;&#x865A;&#x62DF;&#x4E0A;&#x4E0B;&#x6587;&#x201D;&#x3002;<br>&#x5728;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;new.target&#x6307;&#x5411;&#x6700;&#x8FD1;&#x7684;&#x5916;&#x5C42;&#x51FD;&#x6570;&#x7684;new.target&#x3002;</p>
+<h2 id="Array-prototype"><a href="#Array-prototype" class="headerlink" title="Array.prototype"></a>Array.prototype</h2><p>Array.prototype&#x662F;&#x4E00;&#x4E2A;<strong>&#x6570;&#x7EC4;</strong>&#xFF0C;length&#x4E3A;0&#xFF0C;Array&#x7684;&#x539F;&#x578B;&#x65B9;&#x6CD5;&#x5747;&#x4E3A;&#x8BE5;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x8BE5;&#x6570;&#x7EC4;&#x7684;<strong>proto</strong>&#x4ECD;&#x7136;&#x6307;&#x5411;Object.prototype&#x3002;Array.isArray()&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Object.prototype.toString.call()&#x5B9E;&#x73B0;polyfill&#x3002;</p>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-08-29T16:28:02.000Z" itemprop="datePublished">2019-08-30</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/tags/javascript/">javascript</a>
+    </span>
+
+    
+
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/2019/08/31/instanceof/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    instanceof
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/08/30/原型链/" class="ui tiny button">
+                    
+                    原型链
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#对象深拷贝（详尽的可以参考lodash-baseClone的实现）"><span>对象深拷贝（详尽的可以参考lodash baseClone的实现）</span></a></li><li><a href="#Object-toString和Object-prototype-toString"><span>Object.toString和Object.prototype.toString</span></a></li><li><a href="#、-和Object-is"><span>==、===和Object.is</span></a><ol><li><a href="#"><span>==</span></a></li><li><a href="#和Object-is"><span>===和Object.is</span></a></li></ol></li><li><a href="#new-target"><span>new.target</span></a></li><li><a href="#Array-prototype"><span>Array.prototype</span></a></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">emsigant</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>

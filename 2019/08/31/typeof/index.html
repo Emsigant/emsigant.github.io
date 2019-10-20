@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>typeof | Emsigant&#39;s blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="typeof&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x63CF;&amp;#x8FF0;typeof &amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x8868;&amp;#x793A;&amp;#x672A;&amp;#x7ECF;&amp;#x8BA1;&amp;#x7B97;&amp;#x7684;&amp;#x">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="typeof">
+<meta property="og:url" content="https://emsigant.github.io/2019/08/31/typeof/index.html">
+<meta property="og:site_name" content="Emsigant&#39;s blog">
+<meta property="og:description" content="typeof&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x63CF;&amp;#x8FF0;typeof &amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x8868;&amp;#x793A;&amp;#x672A;&amp;#x7ECF;&amp;#x8BA1;&amp;#x7B97;&amp;#x7684;&amp;#x">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-14T07:29:30.465Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="typeof">
+<meta name="twitter:description" content="typeof&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x63CF;&amp;#x8FF0;typeof &amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x8868;&amp;#x793A;&amp;#x672A;&amp;#x7ECF;&amp;#x8BA1;&amp;#x7B97;&amp;#x7684;&amp;#x">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "emsigant",
+  "url": "https://emsigant.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Emsigant&#39;s blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpeg">
+                </div>
+                <div class="content">
+                    <a class="header">emsigant</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-typeof" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    typeof
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h2 id="typeof&#x64CD;&#x4F5C;&#x7B26;"><a href="#typeof&#x64CD;&#x4F5C;&#x7B26;" class="headerlink" title="typeof&#x64CD;&#x4F5C;&#x7B26;"></a>typeof&#x64CD;&#x4F5C;&#x7B26;</h2><h3 id="&#x63CF;&#x8FF0;"><a href="#&#x63CF;&#x8FF0;" class="headerlink" title="&#x63CF;&#x8FF0;"></a>&#x63CF;&#x8FF0;</h3><p>typeof &#x64CD;&#x4F5C;&#x7B26;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8868;&#x793A;&#x672A;&#x7ECF;&#x8BA1;&#x7B97;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x7C7B;&#x578B;</p>
+<h3 id="&#x8BED;&#x6CD5;"><a href="#&#x8BED;&#x6CD5;" class="headerlink" title="&#x8BED;&#x6CD5;"></a>&#x8BED;&#x6CD5;</h3><p>typeof <em>operand</em> &#x6216;&#x8005; <em>typeof(operand)</em></p>
+<h3 id="&#x6982;&#x62EC;"><a href="#&#x6982;&#x62EC;" class="headerlink" title="&#x6982;&#x62EC;"></a>&#x6982;&#x62EC;</h3><table>
+<thead>
+<tr>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x7ED3;&#x679C;</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Undefined</td>
+<td>&#x201C;undefined&#x201D;</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>&#x201C;object&#x201D;</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>&#x201C;boolean&#x201D;</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>&#x201C;number&#x201D;</td>
+</tr>
+<tr>
+<td>BigInt</td>
+<td>&#x201C;bigint&#x201D;</td>
+</tr>
+<tr>
+<td>String</td>
+<td>&#x201C;string&#x201D;</td>
+</tr>
+<tr>
+<td>Symbol (ECMAScript 2015 &#x65B0;&#x589E;)</td>
+<td>&#x201C;symbol&#x201D;</td>
+</tr>
+<tr>
+<td>&#x5BBF;&#x4E3B;&#x5BF9;&#x8C61;&#xFF08;&#x7531; JS &#x73AF;&#x5883;&#x63D0;&#x4F9B;&#xFF09;</td>
+<td>&#x53D6;&#x51B3;&#x4E8E;&#x5177;&#x4F53;&#x5B9E;&#x73B0;</td>
+</tr>
+<tr>
+<td>Function &#x5BF9;&#x8C61; (&#x6309;&#x7167; ECMA-262 &#x89C4;&#x8303;&#x5B9E;&#x73B0; [[Call]])</td>
+<td>&#x201C;function&#x201D;</td>
+</tr>
+<tr>
+<td>&#x5176;&#x4ED6;<strong>&#x4EFB;&#x4F55;&#x5BF9;&#x8C61;</strong></td>
+<td>&#x201C;object&#x201D;</td>
+</tr>
+</tbody></table>
+<h3 id="&#x4EE3;&#x7801;&#x793A;&#x4F8B;"><a href="#&#x4EE3;&#x7801;&#x793A;&#x4F8B;" class="headerlink" title="&#x4EE3;&#x7801;&#x793A;&#x4F8B;"></a>&#x4EE3;&#x7801;&#x793A;&#x4F8B;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x6570;&#x503C;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">37</span> === <span class="string">&apos;number&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="number">3.14</span> === <span class="string">&apos;number&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span>(<span class="number">42</span>) === <span class="string">&apos;number&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>.LN2 === <span class="string">&apos;number&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">Infinity</span> === <span class="string">&apos;number&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span> === <span class="string">&apos;number&apos;</span>; <span class="comment">// &#x5C3D;&#x7BA1;&#x5B83;&#x662F; &quot;Not-A-Number&quot; (&#x975E;&#x6570;&#x503C;) &#x7684;&#x7F29;&#x5199;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Number</span>(<span class="number">1</span>) === <span class="string">&apos;number&apos;</span>; <span class="comment">// Number &#x4F1A;&#x5C1D;&#x8BD5;&#x628A;&#x53C2;&#x6570;&#x89E3;&#x6790;&#x6210;&#x6570;&#x503C;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">42</span>n === <span class="string">&apos;bigint&apos;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5B57;&#x7B26;&#x4E32;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&apos;&apos;</span> === <span class="string">&apos;string&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&apos;bla&apos;</span> === <span class="string">&apos;string&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="string">`template literal`</span> === <span class="string">&apos;string&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&apos;1&apos;</span> === <span class="string">&apos;string&apos;</span>; <span class="comment">// &#x6CE8;&#x610F;&#x5185;&#x5BB9;&#x4E3A;&#x6570;&#x5B57;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4ECD;&#x662F;&#x5B57;&#x7B26;&#x4E32;</span></span><br><span class="line"><span class="keyword">typeof</span> (<span class="keyword">typeof</span> <span class="number">1</span>) === <span class="string">&apos;string&apos;</span>; <span class="comment">// typeof &#x603B;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">String</span>(<span class="number">1</span>) === <span class="string">&apos;string&apos;</span>; <span class="comment">// String &#x5C06;&#x4EFB;&#x610F;&#x503C;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6BD4; toString &#x66F4;&#x5B89;&#x5168;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5E03;&#x5C14;&#x503C;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span> === <span class="string">&apos;boolean&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">false</span> === <span class="string">&apos;boolean&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Boolean</span>(<span class="number">1</span>) === <span class="string">&apos;boolean&apos;</span>; <span class="comment">// Boolean() &#x4F1A;&#x57FA;&#x4E8E;&#x53C2;&#x6570;&#x662F;&#x771F;&#x503C;&#x8FD8;&#x662F;&#x865A;&#x503C;&#x8FDB;&#x884C;&#x8F6C;&#x6362;</span></span><br><span class="line"><span class="keyword">typeof</span> !!(<span class="number">1</span>) === <span class="string">&apos;boolean&apos;</span>; <span class="comment">// &#x4E24;&#x6B21;&#x8C03;&#x7528; ! (&#x903B;&#x8F91;&#x975E;) &#x64CD;&#x4F5C;&#x7B26;&#x76F8;&#x5F53;&#x4E8E; Boolean()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Symbols</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>() === <span class="string">&apos;symbol&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>(<span class="string">&apos;foo&apos;</span>) === <span class="string">&apos;symbol&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>.iterator === <span class="string">&apos;symbol&apos;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Undefined</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> === <span class="string">&apos;undefined&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> declaredButUndefinedVariable === <span class="string">&apos;undefined&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> undeclaredVariable === <span class="string">&apos;undefined&apos;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5BF9;&#x8C61;</span></span><br><span class="line"><span class="keyword">typeof</span> {<span class="attr">a</span>: <span class="number">1</span>} === <span class="string">&apos;object&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x4F7F;&#x7528; Array.isArray &#x6216;&#x8005; Object.prototype.toString.call</span></span><br><span class="line"><span class="comment">// &#x533A;&#x5206;&#x6570;&#x7EC4;&#x548C;&#x666E;&#x901A;&#x5BF9;&#x8C61;</span></span><br><span class="line"><span class="keyword">typeof</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>] === <span class="string">&apos;object&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>() === <span class="string">&apos;object&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> /regex/ === <span class="string">&apos;object&apos;</span>; <span class="comment">// &#x5386;&#x53F2;&#x7ED3;&#x679C;&#x8BF7;&#x53C2;&#x9605;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x90E8;&#x5206;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4EE4;&#x4EBA;&#x8FF7;&#x60D1;&#xFF0C;&#x975E;&#x5E38;&#x5371;&#x9669;&#xFF0C;&#x6CA1;&#x6709;&#x7528;&#x5904;&#x3002;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x3002;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>) === <span class="string">&apos;object&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>) === <span class="string">&apos;object&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&apos;abc&apos;</span>) === <span class="string">&apos;object&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x51FD;&#x6570;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{} === <span class="string">&apos;function&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>{} === <span class="string">&apos;function&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>.sin === <span class="string">&apos;function&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// null JavaScript &#x8BDE;&#x751F;&#x4EE5;&#x6765;&#x4FBF;&#x5982;&#x6B64;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> === <span class="string">&apos;object&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5F53;&#x524D;&#x6240;&#x6709;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x66B4;&#x9732;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x4E3A; undefined &#x7684;&#x975E;&#x6807;&#x51C6;&#x5BBF;&#x4E3B;&#x5BF9;&#x8C61; document.all</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">document</span>.all === <span class="string">&apos;undefined&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5728;es6&#x5F15;&#x5165;let&#x548C;const&#x4E4B;&#x540E; typeof&#x4E5F;&#x4F1A;&#x62A5;&#x9519;</span></span><br><span class="line"><span class="keyword">typeof</span> undeclaredVariable === <span class="string">&apos;undefined&apos;</span>;</span><br><span class="line"><span class="keyword">typeof</span> newLetVariable; <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">typeof</span> newConstVariable; <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">typeof</span> newClass; <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">var</span> undeclaredVariable;</span><br><span class="line"><span class="keyword">let</span> newLetVariable;</span><br><span class="line"><span class="keyword">const</span> newConstVariable = <span class="string">&apos;hello&apos;</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">newClass</span></span>{};</span><br></pre></td></tr></table></figure>
+
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-08-30T20:31:50.000Z" itemprop="datePublished">2019-08-31</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/tags/javascript/">javascript</a>
+    </span>
+
+    
+
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/2019/08/31/并发模型与事件循环/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    并发模型与事件循环
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/08/31/instanceof/" class="ui tiny button">
+                    
+                    instanceof
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#typeof操作符"><span>typeof操作符</span></a><ol><li><a href="#描述"><span>描述</span></a></li><li><a href="#语法"><span>语法</span></a></li><li><a href="#概括"><span>概括</span></a></li><li><a href="#代码示例"><span>代码示例</span></a></li></ol></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">emsigant</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>

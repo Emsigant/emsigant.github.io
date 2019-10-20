@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>重读JavaScript精粹2 | Emsigant&#39;s blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x51FD;&amp;#x6570;&amp;#x5BF9;&amp;#x8C61;  &amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#xFF1A;JavaScript&amp;#x7684;&amp;#x51FD;&amp;#x6570;&amp;#x5C31;&amp;#x662F;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&amp;#x7279;&amp;#x6B8A;&amp;#x7684;&amp;#x662F;&amp;#xFF0C;&amp;#x6">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重读JavaScript精粹2">
+<meta property="og:url" content="https://emsigant.github.io/2019/08/28/重读JavaScript精粹2/index.html">
+<meta property="og:site_name" content="Emsigant&#39;s blog">
+<meta property="og:description" content="&amp;#x51FD;&amp;#x6570;&amp;#x5BF9;&amp;#x8C61;  &amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#xFF1A;JavaScript&amp;#x7684;&amp;#x51FD;&amp;#x6570;&amp;#x5C31;&amp;#x662F;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&amp;#x7279;&amp;#x6B8A;&amp;#x7684;&amp;#x662F;&amp;#xFF0C;&amp;#x6">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-05T06:02:44.188Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重读JavaScript精粹2">
+<meta name="twitter:description" content="&amp;#x51FD;&amp;#x6570;&amp;#x5BF9;&amp;#x8C61;  &amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#xFF1A;JavaScript&amp;#x7684;&amp;#x51FD;&amp;#x6570;&amp;#x5C31;&amp;#x662F;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&amp;#x7279;&amp;#x6B8A;&amp;#x7684;&amp;#x662F;&amp;#xFF0C;&amp;#x6">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "emsigant",
+  "url": "https://emsigant.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Emsigant&#39;s blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpeg">
+                </div>
+                <div class="content">
+                    <a class="header">emsigant</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-重读JavaScript精粹2" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    重读JavaScript精粹2
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <p>&#x51FD;&#x6570;&#x5BF9;&#x8C61;</p>
+<ul class="ui list">
+<li><p>&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;JavaScript&#x7684;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5BF9;&#x8C61;&#x3002;&#x7279;&#x6B8A;&#x7684;&#x662F;&#xFF0C;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x4F1A;&#x88AB;&#x8FDE;&#x63A5;&#x5230;Function.prototype&#xFF0C;&#x5728;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x90FD;&#x4F1A;&#x9644;&#x52A0;&#x4E24;&#x4E2A;&#x9690;&#x85CF;&#x7684;&#x5C5E;&#x6027;&#xFF08;&#x51FD;&#x6570;&#x4E0A;&#x4E0B;&#x6587;&#x548C;&#x5B9E;&#x73B0;&#x51FD;&#x6570;&#x7684;&#x4EE3;&#x7801;&#xFF09;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x5B83;&#x7684;prototype&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;constructor&#x5C5E;&#x6027;&#xFF0C;&#x6307;&#x5411;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x81EA;&#x8EAB;&#xFF0C;Function&#x6784;&#x9020;&#x5668;&#x4F1A;&#x8FD0;&#x884C;&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.prototype = { <span class="attr">constructor</span>: <span class="keyword">this</span> }</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{};</span><br><span class="line"><span class="keyword">const</span> afunc = <span class="keyword">new</span> Func();</span><br><span class="line">afunc.__proto__ === Func.prototype; <span class="comment">// &#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;constructor&#x59CB;&#x7EC8;&#x6307;&#x5411;&#x5176;&#x6784;&#x9020;&#x51FD;&#x6570;</span></span><br><span class="line">afunc.constructor === afunc.__proto__.constructor === Func;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x51FD;&#x6570;&#x5B57;&#x9762;&#x91CF;/Function Literals&#xFF1A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;&#x3002;&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;&#x7684;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x5230;&#x5916;&#x90E8;&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x8FD9;&#x88AB;&#x79F0;&#x4E3A;&#x95ED;&#x5305;</p>
+</li>
+<li><p>&#x8C03;&#x7528;/Invocation&#xFF1A;&#x6BCF;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x4F1A;&#x6682;&#x505C;&#x5F53;&#x524D;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x4F20;&#x9012;&#x63A7;&#x5236;&#x6743;&#x548C;&#x53C2;&#x6570;&#x7ED9;&#x65B0;&#x51FD;&#x6570;&#x3002;&#x51FA;&#x4E86;&#x58F0;&#x660E;&#x65F6;&#x5B9A;&#x4E49;&#x7684;&#x5F62;&#x5F0F;&#x53C2;&#x6570;&#xFF0C;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x8FD8;&#x4F1A;&#x63A5;&#x53D7;&#x4E24;&#x4E2A;&#x9644;&#x52A0;&#x7684;&#x9690;&#x85CF;&#x53C2;&#x6570;&#xFF1A;this&#x548C;arguments&#x3002;this&#x7684;&#x503C;&#x53D6;&#x51B3;&#x4E8E;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x3002;JavaScript&#x4E2D;&#x4E00;&#x5171;&#x6709;4&#x79CD;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3001;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x3001;&#x6784;&#x9020;&#x5668;&#x8C03;&#x7528;&#x548C;apply&#x8C03;&#x7528;</p>
+</li>
+<li><p>&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6A21;&#x5F0F;&#xFF1A;&#x5F53;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x4FDD;&#x5B58;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x5B83;&#x4E3A;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;this&#x4F1A;&#x88AB;&#x7ED1;&#x5B9A;&#x5230;&#x8BE5;&#x5BF9;&#x8C61;</p>
+</li>
+<li><p>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x6A21;&#x5F0F;&#xFF1A;&#x5F53;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x8C03;&#x7528;&#x5B83;&#x65F6;&#xFF0C;&#x5C31;&#x662F;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x6A21;&#x5F0F;&#x3002;this&#x4F1A;&#x88AB;&#x7ED1;&#x5B9A;&#x5230;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#xFF08;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x8BED;&#x8A00;&#x8BBE;&#x8BA1;&#x7F3A;&#x9677;&#xFF09;</p>
+</li>
+<li><p>&#x6784;&#x9020;&#x5668;&#x8C03;&#x7528;&#x6A21;&#x5F0F;&#xFF1A;JavaScript&#x662F;&#x4E00;&#x95E8;&#x57FA;&#x4E8E;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#xFF0C;js&#x662F;&#x65E0;&#x7C7B;&#x578B;&#x7684;&#x3002;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x524D;&#x52A0;&#x4E0A;new&#x6765;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5C31;&#x662F;&#x6784;&#x9020;&#x5668;&#x8C03;&#x7528;&#x6A21;&#x5F0F;&#x3002;&#x8FD9;&#x65F6;&#x4F1A;&#x521B;&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x4F1A;&#x88AB;&#x8FDE;&#x63A5;&#x5230;&#x51FD;&#x6570;&#x7684;prototype&#xFF0C;this&#x4F1A;&#x88AB;&#x7ED1;&#x5B9A;&#x5230;&#x65B0;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;</p>
+</li>
+<li><p>apply&#x8C03;&#x7528;&#x6A21;&#x5F0F;&#xFF1A;apply&#x65B9;&#x6CD5;&#x662F;Function.prototype&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;apply&#x65B9;&#x6CD5;&#x6539;&#x53D8;this&#x7684;&#x7ED1;&#x5B9A;&#x503C;</p>
+</li>
+<li><p>&#x8FD4;&#x56DE;/Return&#xFF1A;&#x5F53;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5728;&#x5173;&#x95ED;&#x51FD;&#x6570;&#x4F53;&#x7684;}&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x88AB;&#x63A7;&#x5236;&#x6743;&#x4EA4;&#x8FD8;&#x7ED9;&#x8C03;&#x7528;&#x5B83;&#x7684;&#x7A0B;&#x5E8F;&#x3002;return&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x63D0;&#x524D;&#x8BA9;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x3002;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x603B;&#x662F;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;undefined&#x3002;&#x5982;&#x679C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;this&#xFF08;&#x8FD4;&#x56DE;&#x4E86;&#x5BF9;&#x8C61;&#x5219;&#x4E0D;&#x4F1A;&#x8FD4;&#x56DE;this&#xFF09;</p>
+</li>
+<li><p>&#x9012;&#x5F52;/Recursion&#xFF1A;&#x9012;&#x5F52;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5728;&#x5185;&#x90E8;&#x8C03;&#x7528;&#x81EA;&#x8EAB;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x628A;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x62C6;&#x5206;&#x6210;&#x76F8;&#x4F3C;&#x7684;&#x5B50;&#x95EE;&#x9898;&#x53BB;&#x89E3;&#x51B3;</p>
+</li>
+<li><p>&#x95ED;&#x5305;/Closure&#xFF1A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5B9A;&#x4E49;&#x5B83;&#x4EEC;&#x7684;&#x5916;&#x90E8;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x548C;&#x53D8;&#x91CF;&#xFF08;&#x9664;&#x4E86;this&#x548C;arguments&#xFF09;</p>
+</li>
+</ul>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-08-28T10:40:43.000Z" itemprop="datePublished">2019-08-28</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/tags/javascript/">javascript</a>
+    </span>
+
+    
+
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/2019/08/29/数据类型和结构/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    JavaScript数据类型和结构
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/08/27/重读JavaScript精粹1/" class="ui tiny button">
+                    
+                    重读JavaScript精粹1
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">emsigant</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>

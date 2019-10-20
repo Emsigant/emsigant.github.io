@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>设计模式 | Emsigant&#39;s blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x521B;&amp;#x5EFA;&amp;#x578B;&amp;#x6A21;&amp;#x5F0F; Creational Patterns &amp;#x5DE5;&amp;#x5382;&amp;#x6A21;&amp;#x5F0F; Factory pattern &amp;#x62BD;&amp;#x8C61;&amp;#x5DE5;&amp;#x5382;&amp;#x6A21;&amp;#x5F0F; Abstract Factory pattern &amp;#x5355;&amp;#x4F8B;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式">
+<meta property="og:url" content="https://emsigant.github.io/2019/09/18/设计模式/index.html">
+<meta property="og:site_name" content="Emsigant&#39;s blog">
+<meta property="og:description" content="&amp;#x521B;&amp;#x5EFA;&amp;#x578B;&amp;#x6A21;&amp;#x5F0F; Creational Patterns &amp;#x5DE5;&amp;#x5382;&amp;#x6A21;&amp;#x5F0F; Factory pattern &amp;#x62BD;&amp;#x8C61;&amp;#x5DE5;&amp;#x5382;&amp;#x6A21;&amp;#x5F0F; Abstract Factory pattern &amp;#x5355;&amp;#x4F8B;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-23T02:29:00.298Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式">
+<meta name="twitter:description" content="&amp;#x521B;&amp;#x5EFA;&amp;#x578B;&amp;#x6A21;&amp;#x5F0F; Creational Patterns &amp;#x5DE5;&amp;#x5382;&amp;#x6A21;&amp;#x5F0F; Factory pattern &amp;#x62BD;&amp;#x8C61;&amp;#x5DE5;&amp;#x5382;&amp;#x6A21;&amp;#x5F0F; Abstract Factory pattern &amp;#x5355;&amp;#x4F8B;">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "emsigant",
+  "url": "https://emsigant.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Emsigant&#39;s blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpeg">
+                </div>
+                <div class="content">
+                    <a class="header">emsigant</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-设计模式" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    设计模式
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h2 id="&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;-Creational-Patterns"><a href="#&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;-Creational-Patterns" class="headerlink" title="&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F; Creational Patterns"></a>&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F; Creational Patterns</h2><ul class="ui list">
+<li>&#x5DE5;&#x5382;&#x6A21;&#x5F0F; Factory pattern</li>
+<li>&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F; Abstract Factory pattern</li>
+<li>&#x5355;&#x4F8B;&#x6A21;&#x5F0F; Singleton pattern</li>
+<li>&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F; Builder pattern</li>
+<li>&#x539F;&#x578B;&#x6A21;&#x5F0F; Prototype pattern</li>
+</ul>
+<h2 id="&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;-Structural-Patterns"><a href="#&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;-Structural-Patterns" class="headerlink" title="&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F; Structural Patterns"></a>&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F; Structural Patterns</h2><ul class="ui list">
+<li>&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F; Adapter pattern</li>
+<li>&#x6865;&#x63A5;&#x6A21;&#x5F0F; Bridge pattern</li>
+<li>&#x8FC7;&#x6EE4;&#x5668;&#x6A21;&#x5F0F; Filter/Criteria pattern</li>
+<li>&#x7EC4;&#x5408;&#x6A21;&#x5F0F; Composite pattern</li>
+<li>&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F; Decorator pattern</li>
+<li>&#x5916;&#x89C2;&#x6A21;&#x5F0F; Facade pattern</li>
+<li>&#x4EAB;&#x5143;&#x6A21;&#x5F0F; Flyweight pattern</li>
+<li>&#x4EE3;&#x7406;&#x6A21;&#x5F0F; Proxy pattern</li>
+</ul>
+<h2 id="&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;-Behavioral-Patterns"><a href="#&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;-Behavioral-Patterns" class="headerlink" title="&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F; Behavioral Patterns"></a>&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F; Behavioral Patterns</h2><ul class="ui list">
+<li>&#x8D23;&#x4EFB;&#x94FE;&#x6A21;&#x5F0F; Chain of responsibility pattern</li>
+<li>&#x547D;&#x4EE4;&#x6A21;&#x5F0F; Command pattern</li>
+<li>&#x89E3;&#x91CA;&#x5668;&#x6A21;&#x5F0F; Interpreter pattern</li>
+<li>&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F; Iterator pattern</li>
+<li>&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F; Mediator pattern</li>
+<li>&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F; Memento pattern</li>
+<li>&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F; Observer pattern</li>
+<li>&#x72B6;&#x6001;&#x6A21;&#x5F0F; State pattern</li>
+<li>&#x7A7A;&#x5BF9;&#x8C61;&#x6A21;&#x5F0F; Null object pattern</li>
+<li>&#x7B56;&#x7565;&#x6A21;&#x5F0F; Strategy pattern</li>
+<li>&#x6A21;&#x677F;&#x6A21;&#x5F0F; Template pattern</li>
+<li>&#x8BBF;&#x95EE;&#x8005;&#x6A21;&#x5F0F; Visitor pattern</li>
+<li>&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6A21;&#x5F0F; Publish suscribe pattern</li>
+<li>&#x751F;&#x4EA7;&#x6D88;&#x8D39;&#x6A21;&#x5F0F; Producer consumer pattern</li>
+</ul>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-09-18T05:26:09.000Z" itemprop="datePublished">2019-09-18</time>
+
+    </span>
+    <span class="post-description-item">
+        
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/2019/09/18/http/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    HTTP
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/09/17/vue源码拾遗/" class="ui tiny button">
+                    
+                    vue源码拾遗
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#创建型模式-Creational-Patterns"><span>创建型模式 Creational Patterns</span></a></li><li><a href="#结构型模式-Structural-Patterns"><span>结构型模式 Structural Patterns</span></a></li><li><a href="#行为型模式-Behavioral-Patterns"><span>行为型模式 Behavioral Patterns</span></a></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">emsigant</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>Promise | Emsigant&#39;s blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x8BED;&amp;#x6CD5;1new Promise(function/* executor */(resolve, reject) {/*...*/});  Promise&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x5728;&amp;#x6267;&amp;#x884C;&amp;#x65F6;&amp;#x7ACB;&amp;#x5373;&amp;#x8C03;&amp;#x7528;executor(execut">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Promise">
+<meta property="og:url" content="https://emsigant.github.io/2019/09/13/Promise/index.html">
+<meta property="og:site_name" content="Emsigant&#39;s blog">
+<meta property="og:description" content="&amp;#x8BED;&amp;#x6CD5;1new Promise(function/* executor */(resolve, reject) {/*...*/});  Promise&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x5728;&amp;#x6267;&amp;#x884C;&amp;#x65F6;&amp;#x7ACB;&amp;#x5373;&amp;#x8C03;&amp;#x7528;executor(execut">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/8633/promises.png">
+<meta property="og:updated_time" content="2019-09-23T02:29:00.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Promise">
+<meta name="twitter:description" content="&amp;#x8BED;&amp;#x6CD5;1new Promise(function/* executor */(resolve, reject) {/*...*/});  Promise&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x5728;&amp;#x6267;&amp;#x884C;&amp;#x65F6;&amp;#x7ACB;&amp;#x5373;&amp;#x8C03;&amp;#x7528;executor(execut">
+<meta name="twitter:image" content="https://mdn.mozillademos.org/files/8633/promises.png">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "emsigant",
+  "url": "https://emsigant.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Emsigant&#39;s blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpeg">
+                </div>
+                <div class="content">
+                    <a class="header">emsigant</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-Promise" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    Promise
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h2 id="&#x8BED;&#x6CD5;"><a href="#&#x8BED;&#x6CD5;" class="headerlink" title="&#x8BED;&#x6CD5;"></a>&#x8BED;&#x6CD5;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>/* <span class="title">executor</span> */(<span class="params">resolve, reject</span>) </span>{<span class="comment">/*...*/</span>});</span><br></pre></td></tr></table></figure>
+
+<p>Promise&#x6784;&#x9020;&#x51FD;&#x6570;&#x5728;&#x6267;&#x884C;&#x65F6;<strong>&#x7ACB;&#x5373;&#x8C03;&#x7528;executor</strong>(executor&#x51FD;&#x6570;&#x5728;Promise&#x6784;&#x9020;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x6240;&#x5EFA;promise&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x524D;&#x88AB;&#x8C03;&#x7528;)&#xFF0C;executor&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p>
+<h2 id="&#x63CF;&#x8FF0;"><a href="#&#x63CF;&#x8FF0;" class="headerlink" title="&#x63CF;&#x8FF0;"></a>&#x63CF;&#x8FF0;</h2><p>&#x4E00;&#x4E2A;Promise&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x72B6;&#x6001;<em>&#x53EA;&#x80FD;</em>&#x662F;pending&#x3001;resolved&#x6216;&#x8005;rejected&#x3002;&#x5F53;Promise&#x7684;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;then&#x7ED1;&#x5B9A;&#x7684;handler&#x5C31;&#x4F1A;&#x88AB;&#x8C03;&#x7528;(then&#x65B9;&#x6CD5;&#x63A5;&#x53D7;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;onfulfilled&#x548C;onrejected&#xFF0C;&#x4F46;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EA;&#x4F20;onfulfilled)&#x3002;</p>
+<p><a class="magnific-img" href="https://mdn.mozillademos.org/files/8633/promises.png"><img src="https://mdn.mozillademos.org/files/8633/promises.png" alt="Promise&#x793A;&#x610F;&#x56FE;" title="Promise&#x793A;&#x610F;&#x56FE;" class="ui centered image"></a></p>
+<h2 id="&#x5C5E;&#x6027;"><a href="#&#x5C5E;&#x6027;" class="headerlink" title="&#x5C5E;&#x6027;"></a>&#x5C5E;&#x6027;</h2><ul class="ui list">
+<li>Promise.length: Promise&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#xFF0C;&#x603B;&#x662F;&#x4E3A;1&#x3002;</li>
+<li>Promise.prototype: Promise&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x3002;</li>
+</ul>
+<h2 id="&#x65B9;&#x6CD5;"><a href="#&#x65B9;&#x6CD5;" class="headerlink" title="&#x65B9;&#x6CD5;"></a>&#x65B9;&#x6CD5;</h2><ul class="ui list">
+<li><p>Promise.all(iterable): &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Promise&#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x6709;iterable&#x91CC;<strong>&#x6240;&#x6709;</strong>&#x7684;promise&#x6210;&#x529F;&#x65F6;&#x624D;&#x4F1A;&#x6210;&#x529F;&#xFF0C;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;promise&#x5931;&#x8D25;&#x90FD;&#x4F1A;&#x89E6;&#x5931;&#x8D25;&#x3002;&#x6210;&#x529F;&#x65F6;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6BCF;&#x4E00;&#x9879;&#x5BF9;&#x5E94;iterable&#x91CC;&#x7684;promise&#x7684;&#x6210;&#x529F;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x5931;&#x8D25;&#x65F6;&#x4F1A;&#x53D6;&#x7B2C;&#x4E00;&#x4E2A;&#x5931;&#x8D25;&#x7684;promise&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;<em>&#x6CE8;&#x610F;</em>&#xFF0C;iterable&#x4E0D;&#x4EC5;&#x4EC5;&#x53EA;&#x80FD;&#x662F;promise&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x610F;&#x5176;&#x4ED6;&#x503C;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.all([<span class="built_in">Promise</span>.resolve(<span class="number">1</span>), <span class="number">2</span>, <span class="number">3</span>]).then(<span class="function"><span class="params">resArr</span> =&gt;</span> <span class="built_in">console</span>.log(resArr)); <span class="comment">// [1,2,3]</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p>  &#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x975E;thenable&#x7684;&#x503C;&#xFF0C;&#x90FD;&#x4F1A;&#x76F4;&#x63A5;&#x5C06;&#x5176;resolve&#xFF1B;thenable&#x7684;&#x503C;&#xFF0C;&#x5219;&#x4F1A;&#x6839;&#x636E;&#x4EE5;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5224;&#x65AD;&#x3002;&#x5F53;Promise.all&#x7684;&#x53C2;&#x6570;&#x4E3A;[]&#x6216;&#x8005;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x65F6;(&#x6216;&#x8005;&#x5B9A;&#x4E49;&#x4E86;&#x7A7A;&#x7684;Symbol.iterator&#x7684;&#x4EFB;&#x610F;&#x503C;)&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<em>&#x540C;&#x6B65;&#x7684;</em>resolved&#x7684;promise&#x3002;&#x5982;&#x679C;iterable&#x4E0D;&#x5305;&#x542B;&#x4EFB;&#x4F55;thenable&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<em>&#x5F02;&#x6B65;&#x7684;</em>resolved&#x7684;promise(Chrome&#x662F;&#x4F8B;&#x5916;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x540C;&#x6B65;&#x7684;promise)&#x3002;</p>
+<ul class="ui list">
+<li>Promise.race(iterable): &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Promise&#x5BF9;&#x8C61;&#xFF0C;iterable&#x4E2D;<strong>&#x4EFB;&#x610F;</strong>&#x4E00;&#x4E2A;<em>&#x6210;&#x529F;&#x6216;&#x8005;&#x5931;&#x8D25;</em>&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x5176;&#x5BF9;&#x5E94;&#x56DE;&#x8C03;&#x3002;</li>
+<li>Promise.reject(reason): &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5931;&#x8D25;&#x72B6;&#x6001;&#x7684;Promise&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;reason&#x4F20;&#x9012;&#x7ED9;&#x5BF9;&#x5E94;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>Promise.resolve(value): &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7531;value&#x51B3;&#x5B9A;&#x7684;Promise&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;value&#x662F;thenable&#x5BF9;&#x8C61;(&#x5E26;then&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;)&#xFF0C;&#x5219;&#x72B6;&#x6001;&#x7531;then&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x51B3;&#x5B9A;&#xFF1B;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#xFF0C;&#x5219;&#x8BE5;Promise&#x7684;&#x72B6;&#x6001;&#x4E3A;fulfilled&#x3002;</li>
+</ul>
+<h2 id="Promise&#x539F;&#x578B;"><a href="#Promise&#x539F;&#x578B;" class="headerlink" title="Promise&#x539F;&#x578B;"></a>Promise&#x539F;&#x578B;</h2><ul class="ui list">
+<li>Promise.prototype.constructor: &#x6307;&#x5411;Promise&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</li>
+<li>Promise.prototype.catch(onRejected): &#x7ED9;&#x5F53;&#x524D;promise&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x62D2;&#x7EDD;&#x56DE;&#x8C03;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Promise&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x65B0;promise&#x4EE5;onRejected&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x6765;&#x8FDB;&#x884C;resolve&#xFF1B;&#x5982;&#x679C;&#x5F53;&#x524D;promise&#x72B6;&#x6001;&#x4E3A;fulfilled&#xFF0C;&#x5219;&#x4EE5;&#x5F53;&#x524D;promise&#x7684;&#x5B8C;&#x6210;&#x7ED3;&#x679C;&#x4F5C;&#x4E3A;&#x65B0;promise&#x7684;&#x5B8C;&#x6210;&#x7ED3;&#x679C;&#x3002;</li>
+<li>Promise.prototype.then(onFulfilled, onRejected): &#x7ED9;&#x5F53;&#x524D;promise&#x6DFB;&#x52A0;&#x6210;&#x529F;&#x548C;&#x62D2;&#x7EDD;&#x56DE;&#x8C03;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;promise&#x3002;</li>
+<li>Promise.prototype.finally(onFinally): &#x7ED9;&#x5F53;&#x524D;promise&#x6DFB;&#x52A0;&#x56DE;&#x8C03;&#xFF0C;&#x5E76;&#x5728;&#x89E3;&#x6790;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;promise&#x3002;&#x56DE;&#x8C03;&#x4F1A;&#x5728;&#x5F53;&#x524D;promise&#x8FD0;&#x884C;&#x5B8C;&#x6BD5;&#x540E;&#x8C03;&#x7528;&#xFF0C;<strong>&#x65E0;&#x8BBA;</strong>&#x72B6;&#x6001;&#x662F;fulfilled&#x8FD8;&#x662F;rejected&#x3002;</li>
+</ul>
+<h2 id="&#x62FE;&#x9057;"><a href="#&#x62FE;&#x9057;" class="headerlink" title="&#x62FE;&#x9057;"></a>&#x62FE;&#x9057;</h2><p>&#x5173;&#x4E8E;Promise&#x548C;microtask&#x961F;&#x5217;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul class="ui list">
+<li>&#x4E00;&#x4E2A;promise&#x7684;then/catch/finally&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x90FD;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x53EA;&#x6709;&#x6267;&#x884C;&#x5B8C;&#x4E3B;&#x7EBF;&#x7A0B;&#x7684;&#x4EFB;&#x52A1;&#x624D;&#x4F1A;&#x5F00;&#x59CB;&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x63A8;&#x5165;microtask&#x961F;&#x5217;</li>
+<li>&#x961F;&#x5217;&#x662F;&#x5148;&#x8FDB;&#x5148;&#x51FA;</li>
+<li>&#x53EA;&#x6709;&#x5F53;&#x4E3B;&#x7EBF;&#x7A0B;&#x7A7A;&#x95F2;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x4F1A;&#x5F00;&#x59CB;&#x6267;&#x884C;microtask&#x961F;&#x5217;</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> {</span><br><span class="line">    resolve();</span><br><span class="line">    <span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">1</span>));</span><br><span class="line">}).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">2</span>));</span><br><span class="line"><span class="comment">// log: 1 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> {</span><br><span class="line">    <span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">3</span>));</span><br><span class="line">    resolve();</span><br><span class="line">}).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">4</span>));</span><br><span class="line"><span class="comment">// log: 3 4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> {</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">        resolve();</span><br><span class="line">        <span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">5</span>));</span><br><span class="line">    }, <span class="number">0</span>);</span><br><span class="line">}).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">6</span>));</span><br><span class="line"><span class="comment">// log: 6 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> {</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">        <span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">7</span>));</span><br><span class="line">        resolve();</span><br><span class="line">    }, <span class="number">0</span>);</span><br><span class="line">}).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">8</span>));</span><br><span class="line"><span class="comment">// log: 7 8</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="&#x9605;&#x8BFB;Promise&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x7684;&#x6E90;&#x7801;"><a href="#&#x9605;&#x8BFB;Promise&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x7684;&#x6E90;&#x7801;" class="headerlink" title="&#x9605;&#x8BFB;Promise&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x7684;&#x6E90;&#x7801;"></a>&#x9605;&#x8BFB;Promise<a href="https://github.com/then/promise/blob/master/src/core.js" target="_blank" rel="noopener">&#x4E00;&#x79CD;&#x5B9E;&#x73B0;</a>&#x7684;&#x6E90;&#x7801;</h2><p>&#x4EE5;&#x4E0B;&#x662F;&#x4E2A;&#x4EBA;&#x7684;&#x7B80;&#x7565;&#x89E3;&#x8BFB;&#xFF0C;&#x53EF;&#x4EE5;&#x89E3;&#x91CA;&#x4E0A;&#x8FF0;&#x73B0;&#x8C61;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">    <span class="comment">// executor&#x4F1A;&#x5728;promise&#x5BF9;&#x8C61;&#x88AB;Promise&#x6784;&#x9020;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#xFF08;&#x8FD9;&#x4E00;&#x70B9;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF09;</span></span><br><span class="line">    <span class="comment">// promise&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#xFF0C;&#x8BB0;&#x4F5C;_state(resolve&#x72B6;&#x6001;) = 0&#xFF0C;_deferredState(_deferreds&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x662F;&#x7531;Handler&#x6784;&#x9020;&#x51FD;&#x6570;&#x6784;&#x9020;&#x7684;) = 0, _deferreds = null</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">executor</span>(<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">        <span class="comment">// resolve&#x51FD;&#x6570;&#x4F1A;&#x5C06;_state&#x7F6E;&#x4E3A;1&#xFF0C;&#x5E76;&#x8C03;&#x7528;finale&#x51FD;&#x6570;</span></span><br><span class="line">        <span class="comment">// finale&#x51FD;&#x6570;&#x4E2D;&#x4F1A;&#x5224;&#x65AD;_deferredState&#xFF1A;</span></span><br><span class="line">        <span class="comment">// &#x5982;&#x679C;_deferredState&#x4E3A;1&#x6216;&#x8005;2&#xFF0C;&#x5219;&#x8C03;&#x7528;handle&#x51FD;&#x6570;&#xFF0C;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x4EE3;&#x7801;</span></span><br><span class="line">        resolve(someValue);</span><br><span class="line">    }</span><br><span class="line">)</span><br><span class="line"><span class="comment">// &#x5728;promise&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E4B;&#x540E;&#x624D;&#x4F1A;&#x8C03;&#x7528;then&#x65B9;&#x6CD5;&#xFF08;&#x4E0D;&#x8C03;&#x7528;then&#x65B9;&#x6CD5;&#x5219;&#x4E0D;&#x4F1A;&#x6709;&#x56DE;&#x8C03;&#xFF09;</span></span><br><span class="line"><span class="comment">// then&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x4F1A;&#x8C03;&#x7528;&#x4E00;&#x4E2A;handle&#x51FD;&#x6570;</span></span><br><span class="line"><span class="comment">// &#x5728;handle&#x51FD;&#x6570;&#x4F1A;&#x5224;&#x65AD;_state&#xFF1A;</span></span><br><span class="line"><span class="comment">// &#x5982;&#x679C;_state&#x4E0D;&#x4E3A;0&#xFF08;&#x5728;executor&#x4E2D;&#x540C;&#x6B65;&#x8C03;&#x7528;resolve&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;handleResolved&#x51FD;&#x6570;&#xFF08;handleResolved&#x51FD;&#x6570;&#x4F1A;&#x5C06;&#x6210;&#x529F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x63A8;&#x5165;&#x5FAE;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#x6267;&#x884C;&#xFF0C;&#x6E90;&#x7801;&#x7528;&#x7684;&#x662F;asap&#x5E93;&#xFF0C;&#x662F;&#x7528;MutationObserver&#x5B9E;&#x73B0;&#x7684;&#xFF09;</span></span><br><span class="line"><span class="comment">// &#x5982;&#x679C;_state&#x4E3A;0&#xFF0C;&#x8868;&#x660E;executor&#x4E2D;&#x7684;resolve&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x662F;&#x88AB;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x6B64;&#x65F6;promise&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x4E0D;&#x4E3A;resolved&#x3002;&#x5982;&#x679C;_deferredState === 0&#xFF0C;&#x5219;_deferredState&#x7F6E;&#x4E3A;1&#xFF0C;&#x5E76;&#x5C06;onFulFilled&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x5C01;&#x88C5;&#x6210;&#x4E00;&#x4E2A;Handler&#xFF0C;&#x5C06;_deferreds&#x7F6E;&#x4E3A;&#x8BE5;Handler&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x5F02;&#x6B65;resolve&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x63D0;&#x4F9B;&#x7ED9;finale&#x51FD;&#x6570;&#x4F7F;&#x7528;&#xFF0C;finale&#x51FD;&#x6570;&#x4F1A;&#x8C03;&#x7528;handle&#x51FD;&#x6570;</span></span><br><span class="line">.then(</span><br><span class="line">    <span class="comment">// &#x4F1A;&#x88AB;&#x5C01;&#x88C5;&#x6210;&#x4E00;&#x4E2A;Handler&#x5BF9;&#x8C61;</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onFulFilled</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    }</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-09-13T03:12:18.000Z" itemprop="datePublished">2019-09-13</time>
+
+    </span>
+    <span class="post-description-item">
+        
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/2019/09/16/cookie-storage/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    cookie &amp; storage
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/09/12/前端跨域和安全/" class="ui tiny button">
+                    
+                    前端跨域和安全
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#语法"><span>语法</span></a></li><li><a href="#描述"><span>描述</span></a></li><li><a href="#属性"><span>属性</span></a></li><li><a href="#方法"><span>方法</span></a></li><li><a href="#Promise原型"><span>Promise原型</span></a></li><li><a href="#拾遗"><span>拾遗</span></a></li><li><a href="#阅读Promise一种实现的源码"><span>阅读Promise一种实现的源码</span></a></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">emsigant</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>

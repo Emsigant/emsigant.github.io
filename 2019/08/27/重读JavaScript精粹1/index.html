@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>重读JavaScript精粹1 | Emsigant&#39;s blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x7EC8;&amp;#x4E8E;&amp;#x4E0B;&amp;#x5B9A;&amp;#x51B3;&amp;#x5FC3;&amp;#x91CD;&amp;#x8BFB;&amp;#x300A;JavaScript&amp;#x7CBE;&amp;#x7CB9;&amp;#x300B;&amp;#x8FD9;&amp;#x672C;&amp;#x4E66;&amp;#x4E86;&amp;#x3002; &amp;#x8FD9;&amp;#x672C;&amp;#x4E66;&amp;#x8FD8;&amp;#x662F;&amp;#x5927;&amp;#x4E">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重读JavaScript精粹1">
+<meta property="og:url" content="https://emsigant.github.io/2019/08/27/重读JavaScript精粹1/index.html">
+<meta property="og:site_name" content="Emsigant&#39;s blog">
+<meta property="og:description" content="&amp;#x7EC8;&amp;#x4E8E;&amp;#x4E0B;&amp;#x5B9A;&amp;#x51B3;&amp;#x5FC3;&amp;#x91CD;&amp;#x8BFB;&amp;#x300A;JavaScript&amp;#x7CBE;&amp;#x7CB9;&amp;#x300B;&amp;#x8FD9;&amp;#x672C;&amp;#x4E66;&amp;#x4E86;&amp;#x3002; &amp;#x8FD9;&amp;#x672C;&amp;#x4E66;&amp;#x8FD8;&amp;#x662F;&amp;#x5927;&amp;#x4E">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-05T06:02:44.188Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重读JavaScript精粹1">
+<meta name="twitter:description" content="&amp;#x7EC8;&amp;#x4E8E;&amp;#x4E0B;&amp;#x5B9A;&amp;#x51B3;&amp;#x5FC3;&amp;#x91CD;&amp;#x8BFB;&amp;#x300A;JavaScript&amp;#x7CBE;&amp;#x7CB9;&amp;#x300B;&amp;#x8FD9;&amp;#x672C;&amp;#x4E66;&amp;#x4E86;&amp;#x3002; &amp;#x8FD9;&amp;#x672C;&amp;#x4E66;&amp;#x8FD8;&amp;#x662F;&amp;#x5927;&amp;#x4E">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "emsigant",
+  "url": "https://emsigant.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Emsigant&#39;s blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpeg">
+                </div>
+                <div class="content">
+                    <a class="header">emsigant</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-重读JavaScript精粹1" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    重读JavaScript精粹1
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <p>&#x7EC8;&#x4E8E;&#x4E0B;&#x5B9A;&#x51B3;&#x5FC3;&#x91CD;&#x8BFB;&#x300A;JavaScript&#x7CBE;&#x7CB9;&#x300B;&#x8FD9;&#x672C;&#x4E66;&#x4E86;&#x3002;</p>
+<p>&#x8FD9;&#x672C;&#x4E66;&#x8FD8;&#x662F;&#x5927;&#x4E09;&#x65F6;&#x67D0;&#x6B21;&#x8DDF;&#x98CE;&#x5241;&#x624B;&#x7684;&#x65F6;&#x5019;&#x4E70;&#x7684;&#xFF0C;&#x4E70;&#x4E86;&#x4E4B;&#x540E;&#x7FFB;&#x770B;&#x4E86;&#x4E24;&#x773C;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x4E00;&#x76F4;&#x88AB;&#x5C18;&#x5C01;&#x8D77;&#x6765;&#xFF0C;&#x76F4;&#x5230;&#x521A;&#x521A;&#xFF0C;&#x6211;&#x5076;&#x7136;&#x5728;&#x67DC;&#x5B50;&#x7684;&#x89D2;&#x843D;&#x7FFB;&#x5230;&#x4E86;&#x8FD9;&#x672C;&#x4E66;&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#x662F;&#x4E00;&#x4E9B;&#x6982;&#x62EC;</p>
+<ul class="ui list">
+<li>&#x5BF9;&#x8C61;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;JavaScript&#x91CC;&#x7684;&#x503C;&#xFF0C;&#x9664;&#x4E86;&#x7B80;&#x5355;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF08;&#x6570;&#x5B57;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5E03;&#x5C14;&#x503C;&#xFF0C;null&#x548C;undefined&#xFF09;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x79F0;&#x4E3A;&#x5BF9;&#x8C61;</li>
+<li>&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;/Object Literals&#xFF1A;&#x5305;&#x542B;&#x5728;{}&#x91CC;&#x7684;0&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;key-value&#x5BF9;&#xFF0C;&#x53EF;&#x4EE5;&#x51FA;&#x73B0;&#x5728;&#x4EFB;&#x4F55;&#x5141;&#x8BB8;&#x8868;&#x8FBE;&#x5F0F;&#x51FA;&#x73B0;&#x7684;&#x5730;&#x65B9;</li>
+<li>&#x68C0;&#x7D22;/Retrieval&#xFF1A;[]&#x6216;&#x8005;.&#x6765;&#x68C0;&#x7D22;&#x5BF9;&#x8C61;&#x6240;&#x5305;&#x542B;&#x7684;&#x503C;</li>
+<li>&#x66F4;&#x65B0;/Update&#xFF1A;&#x4F7F;&#x7528;[]&#x6216;&#x8005;.&#x6765;&#x66F4;&#x65B0;&#x6216;&#x8005;&#x62D3;&#x5C55;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;</li>
+<li>&#x5F15;&#x7528;/Reference&#xFF1A;&#x5BF9;&#x8C61;&#x901A;&#x8FC7;&#x5F15;&#x7528;&#x6765;&#x4F20;&#x9012;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x503C;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x88AB;&#x590D;&#x5236;</li>
+<li>&#x539F;&#x578B;/Prototype&#xFF1A;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x53EF;&#x4EE5;&#x94FE;&#x63A5;&#x5230;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x4ECE;&#x4E2D;&#x7EE7;&#x627F;&#x5C5E;&#x6027;&#x3002;&#x7279;&#x522B;&#x7684;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x4F1A;&#x88AB;&#x94FE;&#x63A5;&#x5230;Object.prototype&#xFF0C;&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x4FEE;&#x6539;&#x4E0D;&#x4F1A;&#x6D89;&#x53CA;&#x539F;&#x578B;&#x94FE;&#x7684;&#x3002;&#x539F;&#x578B;&#x94FE;&#x53EA;&#x6709;&#x5728;&#x68C0;&#x7D22;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x7528;&#x5230;&#x3002;&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x68C0;&#x7D22;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x6539;&#x5C5E;&#x6027;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x4F1A;&#x4ECE;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x4E0A;&#x5BFB;&#x627E;&#xFF0C;&#x5982;&#x6B64;&#x7C7B;&#x63A8;&#xFF0C;&#x76F4;&#x5230;Object.prototype&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x88AB;&#x79F0;&#x4E3A;&#x59D4;&#x6258;</li>
+<li>&#x5220;&#x9664;/Delete&#xFF1A;&#x5220;&#x9664;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x6539;&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x4F1A;&#x88AB;&#x79FB;&#x9664;&#x3002;&#x65E0;&#x6CD5;&#x5220;&#x9664;&#x539F;&#x578B;&#x7684;&#x5C5E;&#x6027;</li>
+</ul>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-08-27T11:31:45.000Z" itemprop="datePublished">2019-08-27</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/tags/javascript/">javascript</a>
+    </span>
+
+    
+
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/2019/08/28/重读JavaScript精粹2/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    重读JavaScript精粹2
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/07/25/Typescript泛型使用1/" class="ui tiny button">
+                    
+                    Typescript泛型使用1
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">emsigant</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>
