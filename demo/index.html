@@ -13,13 +13,25 @@
       padding: 0;
       color: rgb(110, 208, 30);
     }
+    body {
+      min-height: 100vh;
+    }
     #container {
       min-height: 100vh;
       position: relative;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center top;
-      background-image: url(https://gd-hbimg.huaban.com/a8b31495d935441a4d38788f60ecc35fc9fe0c4828f68-siNZPg_fw658webp);
+    }
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+    .bg-img {
+      display: block;
+      height: 100vh;
+      width: auto;
+      margin: 0 auto;
     }
     .text {
       transition: opacity 0.3s ease-in-out;
@@ -68,23 +80,32 @@
       padding-bottom: 18px;
     }
   </style>
-  <body id="container">
-    <div class="text text-align-center" id="first-screen">
-      给我沙雕姐妹的情书
-    </div>
-    <div id="second-screen">
-      <div class="text hidden" id="second-1">
-        <div>感谢21年的夏天，让我们遇见</div>
-        <div>22年的我们 一起疯一起笑</div>
-        <div>让我们23年一起加油~</div>
+  <body>
+    <div id="container">
+      <div class="bg">
+        <img
+          class="bg-img"
+          src="https://gd-hbimg.huaban.com/a8b31495d935441a4d38788f60ecc35fc9fe0c4828f68-siNZPg_fw658webp"
+          referrerpolicy="no-referrer"
+        />
       </div>
-      <div id="second-2" class="text hidden">
-        <img src="./photo.jpg" alt="photo.jpg" />
+      <div class="text text-align-center" id="first-screen">
+        给我沙雕姐妹的情书
       </div>
-      <div id="second-3" class="text hidden text-align-right">
-        <div>宝贝~情人节快乐</div>
-        <div>祝我们早日脱单 哈哈哈</div>
-        <div>爱你的小闲闲</div>
+      <div id="second-screen">
+        <div class="text hidden" id="second-1">
+          <div>感谢21年的夏天，让我们遇见</div>
+          <div>22年的我们 一起疯一起笑</div>
+          <div>让我们23年一起加油~</div>
+        </div>
+        <div id="second-2" class="text hidden">
+          <img src="./photo.jpg" alt="photo.jpg" />
+        </div>
+        <div id="second-3" class="text hidden text-align-right">
+          <div>宝贝~情人节快乐</div>
+          <div>祝我们早日脱单 哈哈哈</div>
+          <div>爱你的小闲闲</div>
+        </div>
       </div>
     </div>
   </body>
