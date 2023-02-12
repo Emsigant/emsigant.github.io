@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>给我沙雕姐妹的情书</title>
+  </head>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: rgb(110, 208, 30);
+    }
+    #container {
+      min-height: 100vh;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+      background-image: url(./background.jpg);
+    }
+    .text {
+      transition: opacity 0.3s ease-in-out;
+      min-width: 100%;
+    }
+    .text-align-center {
+      text-align: center;
+    }
+    .text-align-right {
+      text-align: right;
+    }
+    .hidden {
+      opacity: 0;
+    }
+    #first-screen {
+      position: absolute;
+      top: 30%;
+      font-size: 32px;
+    }
+    #second-screen {
+      position: absolute;
+      top: 0;
+      left: 12.5%;
+      width: 75%;
+      min-height: 100vh;
+    }
+    #second-1 {
+      padding-top: 12.5vw;
+      font-size: 20px;
+    }
+    #second-1 > div {
+      padding-bottom: 18px;
+    }
+    #second-2 > img {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    #second-3 {
+      font-size: 20px;
+      position: absolute;
+      bottom: 12.5vw;
+    }
+    #second-3 div {
+      padding-bottom: 18px;
+    }
+  </style>
+  <body id="container">
+    <div class="text text-align-center" id="first-screen">
+      给我沙雕姐妹的情书
+    </div>
+    <div id="second-screen">
+      <div class="text hidden" id="second-1">
+        <div>感谢21年的夏天，让我们遇见</div>
+        <div>22年的我们 一起疯一起笑</div>
+        <div>让我们23年一起加油~</div>
+      </div>
+      <div id="second-2" class="text hidden">
+        <img src="./photo.jpg" alt="photo.jpg" />
+      </div>
+      <div id="second-3" class="text hidden text-align-right">
+        <div>宝贝~情人节快乐</div>
+        <div>祝我们早日脱单 哈哈哈</div>
+        <div>爱你的小闲闲</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    (function init() {
+      var state = "first";
+      var container = document.getElementById("container");
+      var firstScreenText = document.getElementById("first-screen");
+      var second1 = document.getElementById("second-1");
+      var second2 = document.getElementById("second-2");
+      var second3 = document.getElementById("second-3");
+
+      container.addEventListener(
+        "click",
+        function () {
+          console.log("state", state);
+          if (state === "first") {
+            firstScreenText.classList.add("hidden");
+            state = "second-1";
+            setTimeout(function () {
+              second1.classList.remove("hidden");
+            }, 300);
+            return;
+          }
+          if (state === "second-1") {
+            second2.classList.remove("hidden");
+            state = "second-2";
+            return;
+          }
+          if (state === "second-2") {
+            second3.classList.remove("hidden");
+            state = "second-3";
+            return;
+          }
+        },
+        false
+      );
+    })();
+  </script>
+</html>
